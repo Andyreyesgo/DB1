@@ -1,0 +1,77 @@
+CREATE DATA BASE posts;
+
+
+posts=# CREATE TABLE posts_1 (                                                  atributos_id SERIAL,                                                       nombre_usuario VARCHAR(20),                                                     fecha_creacion DATE,                                                            contenido VARCHAR(20),                                                          descripcion VARCHAR(20),
+PRIMARY KEY (atributos_id)
+);                                                       
+
+3. 
+
+INSERT INTO posts_1 (atributos_id, nombre_usuario, fecha_creacion, contenido, descripcion) VALUES ('01','Pamela','2020-07-26', 'usuario11','firstuser');
+
+INSERT INTO posts_1 ( atributos_id, nombre_usuario, fecha_creacion, contenido, descripcion) VALUES (’02','Carlos','2020-07-26','User2','first_update');
+
+INSERT INTO posts_1 ( atributos_id, nombre_usuario, fecha_creacion, contenido, descripcion) VALUES (’03','Pamela','2020-07-26','User3','first_update2');
+
+4. 
+
+ALTER TABLE posts_1 ADD titulo VARCHAR(20);
+
+5.
+UPDATE posts_1 SET titulo='ingeniera ambiental' WHERE atributos_id=‘1';
+UPDATE posts_1 SET titulo='abogado' WHERE atributos_id=‘2';
+UPDATE posts_1 SET titulo='Diseñador' WHERE atributos_id=‘3';
+
+6. 
+INSERT INTO posts_1 ( atributos_id, nombre_usuario, fecha_creacion, contenido, descripcion) VALUES (’04','Pedro','2020-07-26','User4','Second_update');
+INSERT INTO posts_1 ( atributos_id, nombre_usuario, fecha_creacion, contenido, descripcion) VALUES (’05','Pedro','2020-07-26','User5','Second_update');
+UPDATE posts_1 SET titulo='Contador' WHERE atributos_id=‘4';
+UPDATE posts_1 SET titulo='Arquitecto' WHERE atributos_id=‘5';
+
+7. DELETE FROM posts_1 WHERE atributos_id =‘2';
+
+8.INSERT INTO posts_1( atributos_id, nombre_usuario, fecha_creacion, contenido,descripcion, titulo) VALUES ('6','Carlos','2020-07-26', 'User6', ‘Third_update','Abogado');
+
+
+9. 
+CREATE TABLE comentarios (                                                                                                                                                             atributos_id SERIAL,
+fecha DATE,
+hora_creacion TIME,
+FOREIGN KEY (atributos_id) REFERENCES posts_1 (atributos_id)
+);
+
+
+
+10.
+
+INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('1', '2020-07-26','12:00:00');
+
+INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('1', '2020-07-26','12:30:00');
+
+INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('6','2020-07-26','13:00:00');
+
+INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('6','2020-07-26','13:10:00');
+
+INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('6','2020-07-26','13:20:00');
+
+INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('6','2020-07-26','13:30:00');
+
+
+11.
+INSERT INTO posts_1 ( atributos_id, nombre_usuario, fecha_creacion, contenido, descripcion, titulo) VALUES (‘7','Margarita','2020-07-26','User7','Fourth_update','RRHH');
+
+12.
+
+
+INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('7','2020-07-26','14:00:00');
+INSERT 0 1
+posts=# INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('7','2020-07-26','14:00:01');
+INSERT 0 1
+posts=# INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('7','2020-07-26','14:00:02');
+INSERT 0 1
+posts=# INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('7','2020-07-26','14:00:03');
+INSERT 0 1
+posts=# INSERT INTO comentarios ( atributos_id, fecha, hora_creacion) VALUES ('7','2020-07-26','14:00:04');
+INSERT 0 1
+
+
